@@ -1,0 +1,7 @@
+.yarn
+.git
+.husky
+yarn.lock
+vite.config.js
+public
+README.md
