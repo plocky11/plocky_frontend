@@ -9,11 +9,6 @@ export default defineConfig({
     port: 3000,
   },
   resolve: {
-    alias: [
-      { find: '@', replacement: '/src' },
-      { find: '@assets', replacement: '/src/assets' },
-      { find: '@components', replacement: '/src/components' },
-      { find: '@routes', replacement: '/src/routes' },
-    ],
+    alias: {src: '/src'}
   },
 });
