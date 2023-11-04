@@ -51,39 +51,39 @@ yarn dev
 <table align="center">
     <tr align="center">
         <td style="min-width: 150px;">
-            <a href="https://github.com/HiimKwak">
-              <img src="https://github.com/QRTaxi/QRTaxi_Web/assets/87803596/771a7c9f-a581-49f5-9163-977bbc9c6e0d" width="200">
-              <br />
-              <b>HiimKwak</b>
-            </a>
+          <img src="https://github.com/QRTaxi/QRTaxi_Web/assets/87803596/771a7c9f-a581-49f5-9163-977bbc9c6e0d" width="200">
+          <br />
+          <b>HiimKwak</b>
         </td>
         <td style="min-width: 150px;" background-color="white">
-            <a href="https://github.com/pjh402941">
-              <img src="![]()" width="200">
-              <br />
-              <b>pjh402941</b>
-            </a> 
+          <img src="![]()" width="200">
+          <br />
+          <b>pjh402941</b>
         </td>
-        <td style="min-width: 150px;" background-color="white">
-            <a href="">
-              <img src="![Alt text](image.png)" width="200">
-              <br />
-              <b></b>
-            </a> 
+        <td style="min-width: 150px;" background-color="white">  
+          <img src="![Alt text](image.png)" width="200">
+          <br />
+          <b></b> 
         </td>
     </tr>
     <tr align="center">
         <td>
+          <a href="https://github.com/HiimKwak">
             곽민규 <br/>
             Web FE
+          </a>
       </td>
         <td>
+          <a href="https://github.com/pjh402941">
             박주희 <br />
             Web FE
+          </a> 
         </td>
         <td>
+          <a href="">
             박해솔 <br />
             기획/디자인
+          </a>
         </td>
     </tr>
 </table>
