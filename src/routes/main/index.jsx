@@ -1,3 +1,5 @@
+import { MainWrapper } from './MainStyle';
+
 export default function Main() {
-  return <>root page of plocky</>;
+  return <MainWrapper>root page of plocky</MainWrapper>;
 }
