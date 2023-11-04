@@ -1,3 +1,10 @@
+import { RouterProvider } from 'react-router-dom';
+import { router } from './router';
+
 export default function App() {
-  return <>플로키 홈</>;
+  return (
+    <>
+      <RouterProvider router={router} />
+    </>
+  );
 }
