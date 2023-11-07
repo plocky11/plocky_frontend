@@ -1,7 +1,7 @@
 const windowSize = {
-  small: `screen and (max-width: '600px')`,
-  base: `screen and (max-width: '768px')`,
-  large: `screen and (max-width: '1024px')`,
+  small: 'screen and (max-width: "600px")',
+  base: 'screen and (max-width: "768px")',
+  large: 'screen and (max-width: "1024px")',
 };
 
 const fontSize = {
@@ -47,11 +47,8 @@ const palette = {
     dark_active: '#412306',
     darker: '#331b05',
   },
-  green: {
-
-  }
+  green: {},
 };
-
 
 const theme = {
   windowSize,

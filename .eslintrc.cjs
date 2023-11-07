@@ -10,16 +10,40 @@ module.exports = {
     'airbnb',
     'prettier',
     'plugin:prettier/recommended',
+    'plugin:import/recommended',
   ],
-  ignorePatterns: ['dist', '.eslintrc.cjs'],
+  ignorePatterns: ['dist', '.eslintrc.cjs', 'node_modules/'],
   parserOptions: { ecmaVersion: 'latest', sourceType: 'module' },
-  settings: { react: { version: '18.2' } },
+  settings: {
+    react: { version: '18.2' },
+    'import/resolver': {
+      node: {
+        paths: ['src'],
+        extensions: ['.js', '.jsx'],
+      },
+    },
+  },
   plugins: ['react-refresh', 'prettier', 'import'],
   rules: {
     'react-refresh/only-export-components': [
       'warn',
       { allowConstantExport: true },
     ],
-    'quotes': ['error', 'single'],
+    'react/prop-types': 'off',
+    'react/react-in-jsx-scope': 'off',
+    'import/prefer-default-export': 'off',
+    'import/no-unresolved': 'off',
+    'no-param-reassign': 'off',
+    quotes: ['error', 'single'],
+    'import/extensions': [
+      'error',
+      'ignorePackages',
+      {
+        js: 'never',
+        jsx: 'never',
+        '': 'never',
+      },
+    ],
+    'no-unused-vars': 'off',
   },
 };
