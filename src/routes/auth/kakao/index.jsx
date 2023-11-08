@@ -1,12 +1,10 @@
 import React, { useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { redirect } from 'react-router-dom';
 
 import { requestAccessToken } from '@/api/auth';
 import Loading from '@/components/loading';
 
 export default function RedirectedKakao() {
-  const navigate = useNavigate();
-
   useEffect(() => {
     async function getToken() {
       const code = new URL(window.location.href).searchParams.get('code');
@@ -14,10 +12,10 @@ export default function RedirectedKakao() {
         const loginRes = await requestAccessToken(code);
         console.log(loginRes);
         if (loginRes) {
-          navigate('/');
+          redirect('/');
         }
       } else {
-        navigate('/auth');
+        redirect('/login');
       }
     }
 
