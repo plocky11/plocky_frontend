@@ -1,6 +1,6 @@
 import logo from '@/assets/icons/logo.png';
 import startButton from '@/assets/icons/buttons/startButton.png';
-import Navbar from '../../components/navigation-bar';
+import Navbar from '../../components/navigationBar';
 import {
   Container,
   ContentWrapper,
