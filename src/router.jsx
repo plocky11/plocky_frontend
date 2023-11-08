@@ -29,20 +29,13 @@ const routerData = [
 
 export const routers = createBrowserRouter(
   routerData.map(router => {
-    if (router.withAuth) {
-      return {
-        path: router.path,
-        element: (
-          <GeneralLayout withAuth={router.withAuth}>
-            {router.element}
-          </GeneralLayout>
-        ),
-      };
-    }
-
     return {
       path: router.path,
-      element: router.element,
+      element: (
+        <GeneralLayout withAuth={router.withAuth}>
+          {router.element}
+        </GeneralLayout>
+      ),
     };
   }),
 );
