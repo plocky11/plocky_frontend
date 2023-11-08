@@ -1,17 +1,16 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import {
-  home,
-  mypage,
-  neighborhood,
-  plogging,
-  shop,
-  homeFocused,
-  mypageFocused,
-  neighborhoodFocused,
-  ploggingFocused,
-  shopFocused,
-} from '@/assets/icons/nav/index';
+
+import home from '@/assets/icons/nav/home.png';
+import mypage from '@/assets/icons/nav/mypage.png';
+import neighborhood from '@/assets/icons/nav/neighborhood.png';
+import plogging from '@/assets/icons/nav/plogging.png';
+import shop from '@/assets/icons/nav/shop.png';
+import homeFocused from '@/assets/icons/nav/homeFocused.png';
+import mypageFocused from '@/assets/icons/nav/mypageFocused.png';
+import neighborhoodFocused from '@/assets/icons/nav/neighborhoodFocused.png';
+import ploggingFocused from '@/assets/icons/nav/ploggingFocused.png';
+import shopFocused from '@/assets/icons/nav/shopFocused.png';
 
 const BottomBar = styled.footer`
   display: flex;
