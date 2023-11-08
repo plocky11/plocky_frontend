@@ -25,6 +25,7 @@ module.exports = {
   },
   plugins: ['react-refresh', 'prettier', 'import'],
   rules: {
+    'prettier/prettier': ['error', { endOfLine: 'auto' }],
     'react-refresh/only-export-components': [
       'warn',
       { allowConstantExport: true },
