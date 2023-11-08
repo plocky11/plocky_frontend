@@ -1,5 +1,5 @@
 import logo from '@/assets/icons/logo.png';
-import characterTemp from '@/assets/icons/characters/characterTemp.png';
+import characterTemp from '@/assets/icons/characters/level2.png';
 import defaultBox from '@/assets/icons/background/defaultBox.png';
 import circle from '@/assets/icons/background/circle.png';
 import dot from '@/assets/icons/background/dot.png';
