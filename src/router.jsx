@@ -3,6 +3,7 @@ import { createBrowserRouter } from 'react-router-dom';
 import Main from '@/routes/main/index';
 import Auth from '@/routes/auth/index';
 import Plogging from './routes/plogging';
+import Trash from './routes/temps';
 
 export const router = createBrowserRouter([
   {
@@ -16,5 +17,9 @@ export const router = createBrowserRouter([
   {
     path: '/plogging',
     element: <Plogging />,
+  },
+  {
+    path: '/temp',
+    element: <Trash />,
   },
 ]);
