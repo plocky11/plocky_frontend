@@ -11,12 +11,12 @@ const routerData = [
     withAuth: true,
   },
   {
-    path: '/auth',
+    path: '/login',
     element: <Auth />,
     withAuth: false,
   },
   {
-    path: '/auth/kakao',
+    path: '/login/kakao',
     element: <RedirectedKakao />,
     withAuth: false,
   },
