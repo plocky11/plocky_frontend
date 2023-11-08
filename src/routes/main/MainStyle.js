@@ -22,6 +22,13 @@ export const Container = styled.div`
 
 export const ContentWrapper = styled.div`
   margin-top: 2rem;
+  flex: 1;
+  overflow: auto;
+  -ms-overflow-style: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+  margin-bottom: 62px;
 `;
 
 export const LogoImage = styled.div``;
