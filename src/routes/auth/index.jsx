@@ -3,7 +3,7 @@ import logo from '@/assets/icons/logo.png';
 import waveTop from '@/assets/icons/background/waveTop.png';
 import waveBottom from '@/assets/icons/background/waveBottom.png';
 import loginCaption from '@/assets/icons/background/loginCaption.png';
-import logoCharacter from '@/assets/icons/characters/logoCharacter.png';
+import logoCharacter from '@/assets/icons/characters/level5.png';
 import {
   Container,
   Top,
