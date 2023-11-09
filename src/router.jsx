@@ -2,13 +2,14 @@ import { createBrowserRouter } from 'react-router-dom';
 import Main from '@/routes/main';
 import RedirectedKakao from '@/routes/auth/kakao';
 import Auth from '@/routes/auth';
-import GeneralLayout from './components/layout';
+import GeneralLayout from '@/components/layout';
+import Plogging from '@/routes/plogging/index';
 
 const routerData = [
   {
     path: '/',
     element: <Main />,
-    withAuth: true,
+    withAuth: false,
   },
   {
     path: '/login',
@@ -22,20 +23,9 @@ const routerData = [
   },
   {
     path: '/plogging',
-    element: <div>추가 예정</div>,
-    withAuth: true,
+    element: <Plogging />,
+    withAuth: false,
   },
 ];
 
-export const routers = createBrowserRouter(
-  routerData.map(router => {
-    return {
-      path: router.path,
-      element: (
-        <GeneralLayout withAuth={router.withAuth}>
-          {router.element}
-        </GeneralLayout>
-      ),
-    };
-  }),
-);
+export const routers = createBrowserRouter(routerData);
