@@ -1,10 +1,5 @@
 import styled from 'styled-components';
 
-export const Container = styled.div`
-  display: flex;
-  flex-direction: column;
-`;
-
 export const Top = styled.div``;
 export const Bottom = styled.div``;
 export const ContentWrapper = styled.div`

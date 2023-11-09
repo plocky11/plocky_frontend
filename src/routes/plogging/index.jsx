@@ -4,20 +4,15 @@ import Navbar from '../../components/navigationBar';
 import Trash from '@/components/plogging/trash';
 import Timer from '@/components/plogging/timer';
 
-import {
-  Container,
-  ContentWrapper,
-  LogoImage,
-  GoPlogging,
-} from './PloggingStyle';
+import { ContentWrapper, GoPlogging } from './PloggingStyle';
 
 export default function Plogging() {
   return (
-    <Container>
+    <>
       <ContentWrapper>
-        <LogoImage>
+        <div>
           <img src={logo} alt="Logo" width="120px" height="64px" />
-        </LogoImage>
+        </div>
         <GoPlogging>
           <img src={startButton} width="312px" alt="start" />
         </GoPlogging>
@@ -25,6 +20,6 @@ export default function Plogging() {
         <Timer />
       </ContentWrapper>
       <Navbar />
-    </Container>
+    </>
   );
 }

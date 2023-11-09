@@ -4,18 +4,11 @@ import waveTop from '@/assets/icons/background/waveTop.png';
 import waveBottom from '@/assets/icons/background/waveBottom.png';
 import loginCaption from '@/assets/icons/background/loginCaption.png';
 import logoCharacter from '@/assets/icons/characters/level5.png';
-import {
-  Container,
-  Top,
-  Bottom,
-  LogoImage,
-  Caption,
-  ContentWrapper,
-} from './AuthStyle';
+import { Top, Bottom, LogoImage, Caption, ContentWrapper } from './AuthStyle';
 
 export default function Auth() {
   return (
-    <Container>
+    <>
       <Top>
         <img src={waveTop} width="100%" alt="waveTop" />
       </Top>
@@ -32,6 +25,6 @@ export default function Auth() {
       <Bottom>
         <img src={waveBottom} width="100%" alt="waveBottom" />
       </Bottom>
-    </Container>
+    </>
   );
 }

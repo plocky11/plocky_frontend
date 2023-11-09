@@ -9,7 +9,6 @@ import goButton from '@/assets/icons/buttons/goButton.png';
 import ProgressBar from '../../components/mainpage/progressBar';
 import Navbar from '../../components/navigationBar';
 import {
-  Container,
   ContentWrapper,
   RankWrapper,
   RankBox,
@@ -19,23 +18,20 @@ import {
   Rank,
   Username,
   UserKm,
-  LogoImage,
-  PetImage,
   RankImage,
   GoPlogging,
 } from './MainStyle';
 
 export default function Main() {
-  const defaultBoxes = Array(3).fill(defaultBox);
   return (
-    <Container>
+    <>
       <ContentWrapper>
-        <LogoImage>
+        <div>
           <img src={logo} alt="Logo" width="120px" height="64px" />
-        </LogoImage>
-        <PetImage>
+        </div>
+        <div>
           <img src={characterTemp} alt="pet" width="160px" height="120px" />
-        </PetImage>
+        </div>
         <PetName>아하방구</PetName>
         <ExpBar>
           <ProgressBar bgcolor="#b3d12c" completed="50" />
@@ -44,24 +40,43 @@ export default function Main() {
           </Caption>
         </ExpBar>
         <RankWrapper>
-          {defaultBoxes.map((box, index) => (
-            <RankBox key={index}>
-              <img src={box} alt={`defaultBox-${index}`} />
-              <Rank>{`${index + 1}`}</Rank>
-              <RankImage>
-                <img src={circle} width="36px" height="36px" />
-                {/* 백엔드에서 펫 이미지 가져오기 */}
-              </RankImage>
-              <Username>어쩌구</Username>
-              <UserKm>10km</UserKm>
-            </RankBox>
-          ))}
+          <RankBox>
+            <img src={defaultBox} alt="rank" />
+            <Rank>1</Rank>
+            <RankImage>
+              <img src={circle} width="36px" height="36px" alt="circle" />
+              {/* 백엔드에서 펫 이미지 가져오기 */}
+            </RankImage>
+            <Username>어쩌구</Username>
+            <UserKm>10km</UserKm>
+          </RankBox>
+          <RankBox>
+            <img src={defaultBox} alt="rank" />
+            <Rank>2</Rank>
+            <RankImage>
+              <img src={circle} width="36px" height="36px" alt="circle" />
+              {/* 백엔드에서 펫 이미지 가져오기 */}
+            </RankImage>
+            <Username>어쩌구</Username>
+            <UserKm>10km</UserKm>
+          </RankBox>
+          <RankBox>
+            <img src={defaultBox} alt="rank" />
+            <Rank>3</Rank>
+            <RankImage>
+              <img src={circle} width="36px" height="36px" alt="circle" />
+              {/* 백엔드에서 펫 이미지 가져오기 */}
+            </RankImage>
+            <Username>어쩌구</Username>
+            <UserKm>10km</UserKm>
+          </RankBox>
           <img src={dot} alt="dot" width="30px" />
           <RankBox>
-            <img src={lineBox} width="100%" />
+            <img src={lineBox} width="100%" alt="line" />
             <img
               src={leaf}
               id="leaf"
+              alt="leaf"
               style={{
                 position: 'absolute',
                 top: '-16px',
@@ -71,7 +86,7 @@ export default function Main() {
             />
             <Rank>0</Rank>
             <RankImage>
-              <img src={circle} width="36px" height="36px" />
+              <img src={circle} width="36px" height="36px" alt="circle" />
               {/* 백엔드에서 펫 이미지 가져오기 */}
             </RankImage>
             <Username>어쩌구</Username>
@@ -79,10 +94,10 @@ export default function Main() {
           </RankBox>
         </RankWrapper>
         <GoPlogging>
-          <img src={goButton} width="312px" />
+          <img src={goButton} width="312px" alt="goButton" />
         </GoPlogging>
       </ContentWrapper>
-      <Navbar></Navbar>
-    </Container>
+      <Navbar />
+    </>
   );
 }
