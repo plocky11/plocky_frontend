@@ -1,5 +1,5 @@
-import React from 'react';
 import styled from 'styled-components';
+
 const TimerWrapper = styled.div`
   width: 104px;
   height: 40px;
@@ -18,11 +18,7 @@ const TimerWrapper = styled.div`
   bottom: 33vh;
 `;
 function Timer() {
-  return (
-    <>
-      <TimerWrapper>00:00</TimerWrapper>
-    </>
-  );
+  return <TimerWrapper>00:00</TimerWrapper>;
 }
 
 export default Timer;

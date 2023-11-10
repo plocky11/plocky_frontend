@@ -1,4 +1,3 @@
-import React from 'react';
 import { createBrowserRouter } from 'react-router-dom';
 import Main from '@/routes/main';
 import RedirectedKakao from '@/routes/auth/kakao';
