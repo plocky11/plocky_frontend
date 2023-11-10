@@ -16,6 +16,7 @@ import trashcanButton from '@/assets/icons/buttons/trashcanButton.png';
 import trashcanAdd from '@/assets/icons/buttons/trashcanAdd.png';
 import trashcanDelete from '@/assets/icons/buttons/trashcanDelete.png';
 import AddTrashcanMarker from '@/components/plogging/addTrashcanMarker';
+import EndPlogging from './endPlogging';
 
 const SquareWrapper = styled.div`
   width: 100vw;
@@ -40,12 +41,14 @@ const Trashcan = styled.div`
   position: relative;
 `;
 
-const ClickableFunction1 = styled.div`
+const End = styled.div``;
+
+const ClickableAdd = styled.div`
   position: absolute;
   top: 6px;
   left: 14px;
 `;
-const ClickableFunction2 = styled.div`
+const ClickableDelete = styled.div`
   position: absolute;
   top: 5px;
   right: 11px;
@@ -97,6 +100,7 @@ const Num = styled.div`
 `;
 
 const ClickableItem = styled.div``;
+
 function Trash() {
   const [counts, setCounts] = useState({
     cigarette: 0,
@@ -107,7 +111,9 @@ function Trash() {
     vinyl: 0,
     others: 0,
   });
+
   const [addTrashcan, setAddTrashcan] = useState(false);
+  const [endPloggingModalOpen, setEndPloggingModalOpen] = useState(false);
 
   const handleMinusClick = item => {
     if (counts[item] > 0) {
@@ -129,21 +135,38 @@ function Trash() {
     setAddTrashcan(state);
   };
 
+  // 종료 모달 관련
+  const handleEndClick = () => {
+    setEndPloggingModalOpen(true);
+  };
+
+  const handleConfirm = () => {
+    setEndPloggingModalOpen(false);
+    // 결과 페이지로 이동
+  };
+
+  const handleCancel = () => {
+    setEndPloggingModalOpen(false);
+  };
+
   return (
     <>
       {!addTrashcan ? (
         <FunctionWrapper>
-          <div>
+          <End onClick={handleEndClick}>
             <img src={endButton} width="72px" height="40px" alt="end" />
-          </div>
+          </End>
           <Trashcan>
             <img src={trashcanButton} width="64px" alt="trashcan" />
-            <ClickableFunction1 onClick={() => handleAddClick('true')}>
+            <ClickableAdd onClick={() => handleAddClick('true')}>
               <img src={trashcanAdd} width="15px" alt="add" />
-            </ClickableFunction1>
-            <ClickableFunction2>
+            </ClickableAdd>
+            <ClickableDelete>
               <img src={trashcanDelete} width="22px" alt="delete" />
-            </ClickableFunction2>
+            </ClickableDelete>
+            {endPloggingModalOpen && (
+              <EndPlogging onConfirm={handleConfirm} onClose={handleCancel} />
+            )}
           </Trashcan>
         </FunctionWrapper>
       ) : (
