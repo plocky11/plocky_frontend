@@ -29,7 +29,7 @@ export default function Plogging() {
     : { height: '100vh' };
 
   return (
-    <Container>
+    <>
       <ContentWrapper style={contentWrapperStyle}>
         <LogoImage>
           <img src={logo} alt="Logo" width="120px" height="64px" />
@@ -48,6 +48,6 @@ export default function Plogging() {
         )}
       </ContentWrapper>
       {!isPlogging && <Navbar />}
-    </Container>
+    </>
   );
 }
