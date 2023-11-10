@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
+import { useNavigate } from 'react-router-dom';
 
 import home from '@/assets/icons/nav/home.png';
 import mypage from '@/assets/icons/nav/mypage.png';
@@ -45,11 +46,41 @@ const Text = styled.div`
   width: 100%;
 `;
 
-const Navbar = () => {
+function Navbar() {
+  const navigate = useNavigate();
   const [focusedIcon, setFocusedIcon] = useState('home');
 
   const handleIconClick = icon => {
-    setFocusedIcon(icon);
+    switch (icon) {
+      case 'neighborhood':
+        // navigate('/neighborhood');
+        setFocusedIcon('neighborhood');
+        break;
+      case 'shop':
+        // navigate('/shop');
+        setFocusedIcon('shop');
+        break;
+      case 'home': {
+        navigate('/');
+        console.log(icon);
+        setFocusedIcon('home');
+        console.log(icon);
+        break;
+      }
+      case 'plogging': {
+        navigate('/plogging');
+        console.log(icon);
+        setFocusedIcon('plogging');
+        console.log(icon);
+        break;
+      }
+      case 'mypage':
+        // navigate('/mypage');
+        setFocusedIcon('mypage');
+        break;
+      default:
+        break;
+    }
   };
 
   return (
@@ -113,6 +144,6 @@ const Navbar = () => {
       </IconWrapper>
     </BottomBar>
   );
-};
+}
 
 export default Navbar;

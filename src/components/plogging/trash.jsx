@@ -15,6 +15,7 @@ import endButton from '@/assets/icons/buttons/endButton.png';
 import trashcanButton from '@/assets/icons/buttons/trashcanButton.png';
 import trashcanAdd from '@/assets/icons/buttons/trashcanAdd.png';
 import trashcanDelete from '@/assets/icons/buttons/trashcanDelete.png';
+import AddTrashcanMarker from '@/components/plogging/addTrashcanMarker';
 
 const SquareWrapper = styled.div`
   width: 100vw;
@@ -76,6 +77,7 @@ const ItemBox = styled.button`
   cursor: pointer;
   background: transparent;
   border: none;
+  width: 30%;
 `;
 
 const Item = styled.div`
@@ -105,6 +107,7 @@ function Trash() {
     vinyl: 0,
     others: 0,
   });
+  const [addTrashcan, setAddTrashcan] = useState(false);
 
   const handleMinusClick = item => {
     if (counts[item] > 0) {
@@ -122,22 +125,30 @@ function Trash() {
     }));
   };
 
+  const handleAddClick = state => {
+    setAddTrashcan(state);
+  };
+
   return (
     <>
-      <FunctionWrapper>
-        <div>
-          <img src={endButton} width="72px" height="40px" alt="end" />
-        </div>
-        <Trashcan>
-          <img src={trashcanButton} width="64px" alt="trashcan" />
-          <ClickableFunction1>
-            <img src={trashcanAdd} width="15px" alt="add" />
-          </ClickableFunction1>
-          <ClickableFunction2>
-            <img src={trashcanDelete} width="22px" alt="delete" />
-          </ClickableFunction2>
-        </Trashcan>
-      </FunctionWrapper>
+      {!addTrashcan ? (
+        <FunctionWrapper>
+          <div>
+            <img src={endButton} width="72px" height="40px" alt="end" />
+          </div>
+          <Trashcan>
+            <img src={trashcanButton} width="64px" alt="trashcan" />
+            <ClickableFunction1 onClick={() => handleAddClick('true')}>
+              <img src={trashcanAdd} width="15px" alt="add" />
+            </ClickableFunction1>
+            <ClickableFunction2>
+              <img src={trashcanDelete} width="22px" alt="delete" />
+            </ClickableFunction2>
+          </Trashcan>
+        </FunctionWrapper>
+      ) : (
+        <AddTrashcanMarker />
+      )}
       <SquareWrapper>
         <img
           src={square}
