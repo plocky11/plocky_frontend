@@ -65,7 +65,6 @@ const ItemWrapper = styled.div`
   top: 0;
   display: flex;
   justify-content: space-between;
-  z-index: 0;
   flex-direction: row;
   flex-wrap: wrap;
 `;

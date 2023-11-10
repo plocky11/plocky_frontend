@@ -12,4 +12,7 @@ export const GoPlogging = styled.div`
 `;
 export const LogoImage = styled.div`
   margin-top: 2rem;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%);
 `;
