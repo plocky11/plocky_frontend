@@ -1,3 +1,4 @@
+import { useNavigate } from 'react-router-dom';
 import logo from '@/assets/icons/logo.png';
 import characterTemp from '@/assets/icons/characters/level2.png';
 import defaultBox from '@/assets/icons/background/defaultBox.png';
@@ -23,6 +24,11 @@ import {
 } from './MainStyle';
 
 export default function Main() {
+  const navigate = useNavigate();
+
+  function goPlogging() {
+    navigate('/plogging');
+  }
   return (
     <>
       <ContentWrapper>
@@ -93,7 +99,7 @@ export default function Main() {
             <UserKm>10km</UserKm>
           </RankBox>
         </RankWrapper>
-        <GoPlogging>
+        <GoPlogging onClick={() => goPlogging()}>
           <img src={goButton} width="312px" alt="goButton" />
         </GoPlogging>
       </ContentWrapper>
