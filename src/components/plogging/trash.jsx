@@ -22,12 +22,11 @@ const Line = styled.div`
   top: 0;
   left: 50%;
   transform: translate(-50%);
-  margin-top: 0.5rem;
+  margin-top: 0.2rem;
 `;
 
 const ItemWrapper = styled.div`
-  width: 100%;
-  height: 100%;
+  height: 70%;
   padding: 2rem 1rem 1.5rem;
   position: absolute;
   top: 0;
@@ -43,14 +42,16 @@ const ItemBox = styled.button`
   justify-content: center;
   align-items: center;
   cursor: pointer;
+  background: transparent;
+  border: none;
 `;
 
 const Item = styled.div`
-  width: 2.5rem;
+  width: 1.5rem;
   font-size: 0.375rem;
   font-weight: 800;
   color: white;
-  margin: 0 0.2rem;
+  margin: 0 0.5rem;
 `;
 
 const Num = styled.div`
@@ -91,7 +92,11 @@ function Trash() {
 
   return (
     <Container>
-      <img src={square} style={{ width: '100%', height: '30vh' }} alt="trash" />
+      <img
+        src={square}
+        style={{ width: '100%', height: '30vh', minHeight: '207px' }}
+        alt="trash"
+      />
       <Line>
         <img src={squareLine} width="104px" alt="line" />
       </Line>
