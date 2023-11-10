@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import KaKaoMap from '@/components/kakao-map';
 import logo from '@/assets/icons/logo.png';
 import startButton from '@/assets/icons/buttons/startButton.png';
 import Navbar from '../../components/navigationBar';
@@ -6,12 +7,7 @@ import Trash from '@/components/plogging/trash';
 import Timer from '@/components/plogging/timer';
 // import AddTrashcanMarker from '@/components/plogging/addTrashcanMarker';
 
-import {
-  Container,
-  ContentWrapper,
-  GoPlogging,
-  LogoImage,
-} from './PloggingStyle';
+import { ContentWrapper, GoPlogging, LogoImage } from './PloggingStyle';
 
 export default function Plogging() {
   const [isPlogging, setIsPlogging] = useState(false);
@@ -34,6 +30,7 @@ export default function Plogging() {
         <LogoImage>
           <img src={logo} alt="Logo" width="120px" height="64px" />
         </LogoImage>
+        <KaKaoMap />
         {/* <AddTrashcanMarker /> */}
         {!isPlogging && (
           <GoPlogging onClick={handleStartPlogging}>
