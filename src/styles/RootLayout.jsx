@@ -12,6 +12,7 @@ const RootLayoutWrapper = styled.div`
   text-align: center;
   -ms-overflow-style: none;
   scrollbar-width: none;
+  font-family: 'LINE Seed Sans KR', sans-serif;
   /* 미디어 쿼리 적용 */
   /* pc화면에서 너비를 390로 고정합니다*/
   @media (hover: hover) {
