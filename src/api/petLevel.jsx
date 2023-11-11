@@ -6,7 +6,8 @@ import level3 from '../assets/icons/characters/level3.png';
 import level4 from '../assets/icons/characters/level4.png';
 import level5 from '../assets/icons/characters/level5.png';
 
-function PetLevel({ level }) {
+
+export default function PetLevel({ level }) {
   const getLevelImage = () => {
     switch (level) {
       case 0:
@@ -26,7 +27,14 @@ function PetLevel({ level }) {
     }
   };
 
-  return <img src={getLevelImage()} />;
+  return (
+    <>
+      <img
+        src={getLevelImage()}
+        alt={`Level ${level}`}
+        width={'100%'}
+        height={'100%'}
+      />
+    </>
+  );
 }
-
-export default PetLevel;

@@ -57,6 +57,12 @@ export const RankImage = styled.div`
   position: absolute;
   top: 0.63rem;
   left: 2.81rem;
+  z-index: 999;
+  width: 40px;
+  div {
+    position: absolute;
+    top: 0.15rem;
+  }
 `;
 export const Username = styled.div`
   position: absolute;
@@ -82,4 +88,9 @@ export const GoPlogging = styled.div`
 export const Level = styled.div`
   display: inline;
   margin-left: 2rem;
+`;
+
+export const PetImg = styled.div`
+  width: 160px;
+  margin: 0 auto;
 `;
