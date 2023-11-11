@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react';
 import { redirect } from 'react-router-dom';
-
 import { requestAccessToken } from '@/api/auth';
 import Loading from '@/components/loading';
 
