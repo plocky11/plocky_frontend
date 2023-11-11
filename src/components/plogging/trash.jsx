@@ -22,6 +22,7 @@ const SquareWrapper = styled.div`
   width: 100vw;
   position: absolute;
   bottom: 0;
+  z-index: 2;
   @media (hover: hover) {
     width: 390px;
     margin: 0 auto;
@@ -36,6 +37,7 @@ const FunctionWrapper = styled.div`
   box-sizing: border-box;
   justify-content: space-between;
   margin-bottom: 0.8rem;
+  z-index: 2;
 `;
 const Trashcan = styled.div`
   position: relative;

@@ -4,6 +4,7 @@ import RedirectedKakao from '@/routes/auth/kakao';
 import Auth from '@/routes/auth';
 import GeneralLayout from '@/components/layout';
 import Plogging from '@/routes/plogging/index';
+import EndPlogging from './routes/endPlogging';
 
 const routerData = [
   {
@@ -24,6 +25,11 @@ const routerData = [
   {
     path: '/plogging',
     element: <Plogging />,
+    withAuth: false,
+  },
+  {
+    path: '/endPlogging',
+    element: <EndPlogging />,
     withAuth: false,
   },
 ];

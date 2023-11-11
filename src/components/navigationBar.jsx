@@ -22,6 +22,7 @@ const BottomBar = styled.footer`
   bottom: 0;
   width: 100%;
   background: white;
+  z-index: 2;
   @media (hover: hover) {
     width: 390px;
     margin: 0 auto;
