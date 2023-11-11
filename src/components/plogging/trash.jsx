@@ -17,6 +17,7 @@ import trashcanAdd from '@/assets/icons/buttons/trashcanAdd.png';
 import trashcanDelete from '@/assets/icons/buttons/trashcanDelete.png';
 import AddTrashcanMarker from '@/components/plogging/addTrashcanMarker';
 import EndPlogging from './endPlogging';
+import { usePloggingStart } from '@/api/context/ploggingContext';
 
 const SquareWrapper = styled.div`
   width: 100vw;
@@ -116,6 +117,7 @@ function Trash() {
 
   const [addTrashcan, setAddTrashcan] = useState(false);
   const [endPloggingModalOpen, setEndPloggingModalOpen] = useState(false);
+  const [, setIsPloggingStarted] = usePloggingStart();
 
   const handleMinusClick = item => {
     if (counts[item] > 0) {
@@ -144,6 +146,7 @@ function Trash() {
 
   const handleConfirm = () => {
     setEndPloggingModalOpen(false);
+    setIsPloggingStarted(false);
     // 결과 페이지로 이동
   };
 
