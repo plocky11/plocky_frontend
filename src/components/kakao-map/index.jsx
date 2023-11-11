@@ -9,8 +9,8 @@ export default function KakaoMap() {
   useKakaoMapLoader();
   const [location, setLocation] = useState({
     center: {
-      lat: 33.450701,
-      lng: 126.570667,
+      lat: 37.4025352267,
+      lng: 127.10082686151,
     },
     errMsg: null,
     isLoading: true,
