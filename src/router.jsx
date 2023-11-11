@@ -5,7 +5,10 @@ import Auth from '@/routes/auth';
 import GeneralLayout from '@/components/layout';
 import Plogging from '@/routes/plogging/index';
 import EndPlogging from './routes/endPlogging';
-import MyPage from './routes/mypage';
+import MyPage from './routes/temps/mypage';
+import Item from './routes/temps/item';
+import Clean from './routes/temps/clean';
+
 import { PloggingProvider } from './api/context/ploggingContext';
 
 const routerData = [
@@ -38,6 +41,16 @@ const routerData = [
   {
     path: '/mypage',
     element: <MyPage />,
+    withAuth: false,
+  },
+  {
+    path: '/item',
+    element: <Item />,
+    withAuth: false,
+  },
+  {
+    path: '/neighborhood',
+    element: <Clean />,
     withAuth: false,
   },
 ];

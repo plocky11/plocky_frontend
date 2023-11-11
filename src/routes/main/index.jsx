@@ -1,6 +1,6 @@
+import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import logo from '@/assets/icons/logo.png';
-import characterTemp from '@/assets/icons/characters/level2.png';
 import defaultBox from '@/assets/icons/background/defaultBox.png';
 import circle from '@/assets/icons/background/circle.png';
 import dot from '@/assets/icons/background/dot.png';
@@ -9,6 +9,7 @@ import leaf from '@/assets/icons/background/leaf.png';
 import goButton from '@/assets/icons/buttons/goButton.png';
 import ProgressBar from '../../components/mainpage/progressBar';
 import Navbar from '../../components/navigationBar';
+import PetLevel from '@/api/petLevel';
 import {
   ContentWrapper,
   RankWrapper,
@@ -23,6 +24,7 @@ import {
   GoPlogging,
   Level,
 } from './MainStyle';
+import instance from '@/api/instance';
 
 export default function Main() {
   const navigate = useNavigate();
@@ -30,6 +32,40 @@ export default function Main() {
   function goPlogging() {
     navigate('/plogging');
   }
+
+  const [myData, setMyData] = useState({
+    memberId: '',
+    petLevel: '',
+    nickname: '',
+    totalDistance: '',
+    ranking: '',
+  });
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const rankingResult = await instance.get('/members/ranking', {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem('access_token')}`,
+          },
+        });
+
+        const myRankingResult = await instance.get('/members/ranking/me', {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem('access_token')}`,
+          },
+        });
+        // console.log('General Ranking:', rankingResult.data);
+        console.log('My Ranking:', myRankingResult.data);
+        setMyData(myRankingResult.data);
+        console.log('내 데이터', myData);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+
+    fetchData();
+  }, []);
+
   return (
     <>
       <ContentWrapper>
@@ -37,16 +73,16 @@ export default function Main() {
           <img src={logo} alt="Logo" width="120px" height="64px" />
         </div>
         <div>
-          <img src={characterTemp} alt="pet" width="160px" height="120px" />
+          <PetLevel level={myData.petLevel} />
         </div>
         <PetName>
-          아하방구
-          <Level>Lv.2</Level>
+          {myData.nickname}
+          <Level>Lv.{myData.petLevel}</Level>
         </PetName>
         <ExpBar>
           <ProgressBar bgcolor="#b3d12c" completed="50" />
           <Caption>
-            <span>4km / 10km</span>
+            <span>{myData.totalDistance}km / 10km</span>
           </Caption>
         </ExpBar>
         <RankWrapper>
@@ -94,13 +130,13 @@ export default function Main() {
                 width: '24px',
               }}
             />
-            <Rank>0</Rank>
+            <Rank>{myData.ranking}</Rank>
             <RankImage>
               <img src={circle} width="36px" height="36px" alt="circle" />
               {/* 백엔드에서 펫 이미지 가져오기 */}
             </RankImage>
-            <Username>어쩌구</Username>
-            <UserKm>10km</UserKm>
+            <Username> {myData.nickname}</Username>
+            <UserKm>{myData.totalDistance}</UserKm>
           </RankBox>
         </RankWrapper>
         <GoPlogging onClick={() => goPlogging()}>

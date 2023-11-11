@@ -54,11 +54,11 @@ function Navbar() {
   const handleIconClick = icon => {
     switch (icon) {
       case 'neighborhood':
-        // navigate('/neighborhood');
+        navigate('/neighborhood');
         setFocusedIcon('neighborhood');
         break;
       case 'shop':
-        // navigate('/shop');
+        navigate('/item');
         setFocusedIcon('shop');
         break;
       case 'home': {

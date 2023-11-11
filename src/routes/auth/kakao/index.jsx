@@ -10,10 +10,17 @@ export default function RedirectedKakao() {
       //console.log(code);
       if (code) {
         const loginRes = await requestAccessToken(code);
+<<<<<<< Updated upstream
         localStorage.setItem("access_token" ,loginRes.data.token)
         console.log("requestAccessToken", loginRes.data.token);
         if (loginRes.data.token != null) {
           window.location.href='http://localhost:3000/';
+=======
+        localStorage.setItem('access_token', loginRes.data.token);
+        console.log('requestAccessToken', loginRes.data.token);
+        if (loginRes.data.token != null) {
+          window.location.href = 'http://localhost:3000/';
+>>>>>>> Stashed changes
         }
       } else {
         redirect('/login');
