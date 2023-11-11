@@ -47,7 +47,12 @@ const palette = {
     dark_active: '#412306',
     darker: '#331b05',
   },
-  green: {},
+  green: {
+    main: '#B3D124',
+    light: '#42d400',
+    dark: '#619d46',
+    darker: '#2a6d0d',
+  },
 };
 
 const theme = {

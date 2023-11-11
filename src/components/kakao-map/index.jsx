@@ -48,7 +48,7 @@ export default function KakaoMap() {
   return (
     <Map
       center={location.center}
-      style={{ width: '100%', height: '100vh' }}
+      style={{ width: '100%', height: '100vh', zIndex: '-1' }}
       level={3}
     />
   );
