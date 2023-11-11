@@ -27,8 +27,36 @@ import {
   Name,
   Num,
 } from './endPloggingStyle';
+import { useState } from 'react';
+import { useEffect } from 'react';
+import instance from '@/api/instance';
 
 export default function EndPlogging() {
+  const [plogging, setPlogging] = useState({});
+  const [totalTrash, setTotalTrash] = useState(0);
+  useEffect(()=>{
+    const fetchData = async () => {
+      try{
+        const response = await instance.get('/members/ploggings/4');
+        setPlogging(response.data);
+      } catch (error) {
+        console.error('Error fetching plogging data: ', error);
+      }
+    };
+    //setTotalTrash(plogging.trash.paperQuantity + plogging.trash.plaQuantity + plogging.trash.glassQuantity + plogging.trash.canQuantity + plogging.trash.foamQuantity + plogging.trash.etcQuantity + plogging.trash.cigarQuantity);
+    fetchData();
+  }, []);
+
+  useEffect(() => {
+    setTotalTrash(plogging.trash?.paperQuantity +
+      plogging.trash?.plaQuantity +
+      plogging.trash?.glassQuantity +
+      plogging.trash?.canQuantity +
+      plogging.trash?.foamQuantity +
+      plogging.trash?.etcQuantity +
+      plogging.trash?.cigarQuantity);
+  }, [plogging]);
+
   return (
     <>
       <ContentWrapper>
@@ -40,19 +68,19 @@ export default function EndPlogging() {
         </Capture>
         <TimeWrapper>
           <div>Clear!</div>
-          <div>56분 23초</div>
+          <div>{plogging.totalHour}시간 {plogging.totalMinute}분 {plogging.totalSecond}초</div>
         </TimeWrapper>
         <LocationWrapper>
           <Km>
             <div>걸은 km</div>
-            <div>1.1km</div>
+            <div>{plogging.distance}km</div>
           </Km>
           <div>
             <Location>
-              시작위치<div>경기도 의정부시 용현로 72</div>
+              시작위치<div>{plogging.startedWhere}</div>
             </Location>
             <Location>
-              종료위치<div>서울특별시 광진구 아차산로 196-22</div>
+              종료위치<div>{plogging.endedWhere}</div>
             </Location>
           </div>
         </LocationWrapper>
@@ -60,43 +88,43 @@ export default function EndPlogging() {
           <AllCount>
             <div>주운 쓰레기 수</div>
             <img src={trashcanwhite} width="26px" alt="trashcan" />
-            <div>102개</div>
+            <div>{totalTrash}개</div>
           </AllCount>
           <ItemWrapper>
             <Item>
               <img src={cigarette} width="16px" alt="cigarette" />
               <Name>담배꽁초</Name>
-              <Num>52개</Num>
+              <Num>{plogging.trash?.cigarQuantity}개</Num>
             </Item>
             <Item>
               <img src={plastic} width="16px" alt="plastic" />
               <Name>플라스틱</Name>
-              <Num>52개</Num>
+              <Num>{plogging.trash?.plaQuantity}개</Num>
             </Item>
             <Item>
               <img src={can} width="16px" alt="can" />
               <Name>캔</Name>
-              <Num>52개</Num>
+              <Num>{plogging.trash?.canQuantity}개</Num>
             </Item>
             <Item>
               <img src={paper} width="16px" alt="paper" />
               <Name>종이</Name>
-              <Num>52개</Num>
+              <Num>{plogging.trash?.paperQuantity}개</Num>
             </Item>
             <Item>
               <img src={glass} width="16px" alt="glass" />
               <Name>유리</Name>
-              <Num>52개</Num>
+              <Num>{plogging.trash?.glassQuantity}개</Num>
             </Item>
             <Item>
               <img src={vinyl} width="16px" alt="vinyl" />
               <Name>비닐</Name>
-              <Num>52개</Num>
+              <Num>{plogging.trash?.foamQuantity}개</Num>
             </Item>
             <Item>
               <img src={others} width="16px" alt="others" />
               <Name>기타</Name>
-              <Num>52개</Num>
+              <Num>{plogging.trash?.etcQuantity}개</Num>
             </Item>
           </ItemWrapper>
         </CountWrapper>
