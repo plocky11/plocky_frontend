@@ -18,11 +18,11 @@ export default function KakaoMap() {
   const [positions, setPositions] = useState([]);
 
   useEffect(() => {
-    // Fetch data from the server and update positions state
     const fetchData = async () => {
       try {
         const response = await instance.get('/trash');
         setPositions(response.data);
+        console.log(response.data);
       } catch (error) {
         console.error('Error fetching trash can data:', error);
       }
