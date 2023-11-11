@@ -21,6 +21,7 @@ import {
   UserKm,
   RankImage,
   GoPlogging,
+  Level,
 } from './MainStyle';
 
 export default function Main() {
@@ -38,7 +39,10 @@ export default function Main() {
         <div>
           <img src={characterTemp} alt="pet" width="160px" height="120px" />
         </div>
-        <PetName>아하방구</PetName>
+        <PetName>
+          아하방구
+          <Level>Lv.2</Level>
+        </PetName>
         <ExpBar>
           <ProgressBar bgcolor="#b3d12c" completed="50" />
           <Caption>
