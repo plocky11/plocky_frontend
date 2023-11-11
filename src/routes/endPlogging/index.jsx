@@ -2,7 +2,7 @@ import React from 'react';
 import KaKaoMap from '@/components/kakao-map';
 import logo from '@/assets/icons/logo.png';
 import TempImg from '@/assets/icons/characters/level5.png';
-import trashcanDelete from '@/assets/icons/buttons/trashcanDelete.png';
+import trashcanwhite from '@/assets/icons/buttons/trashcanwhite.png';
 import can from '@/assets/icons/plogging/can.png';
 import cigarette from '@/assets/icons/plogging/cigarette.png';
 import glass from '@/assets/icons/plogging/glass.png';
@@ -19,8 +19,7 @@ import {
   TimeWrapper,
   LocationWrapper,
   Km,
-  Start,
-  End,
+  Location,
   CountWrapper,
   AllCount,
   ItemWrapper,
@@ -49,53 +48,53 @@ export default function EndPlogging() {
             <div>1.1km</div>
           </Km>
           <div>
-            <Start>
+            <Location>
               시작위치<div>경기도 의정부시 용현로 72</div>
-            </Start>
-            <End>
+            </Location>
+            <Location>
               종료위치<div>서울특별시 광진구 아차산로 196-22</div>
-            </End>
+            </Location>
           </div>
         </LocationWrapper>
         <CountWrapper>
           <AllCount>
             <div>주운 쓰레기 수</div>
-            <img src={trashcanDelete} width="26px" alt="trashcan" />
+            <img src={trashcanwhite} width="26px" alt="trashcan" />
             <div>102개</div>
           </AllCount>
           <ItemWrapper>
             <Item>
-              <img src={cigarette} width="24px" alt="cigarette" />
+              <img src={cigarette} width="16px" alt="cigarette" />
               <Name>담배꽁초</Name>
               <Num>52개</Num>
             </Item>
             <Item>
-              <img src={plastic} width="24px" alt="plastic" />
+              <img src={plastic} width="16px" alt="plastic" />
               <Name>플라스틱</Name>
               <Num>52개</Num>
             </Item>
             <Item>
-              <img src={can} width="24px" alt="can" />
+              <img src={can} width="16px" alt="can" />
               <Name>캔</Name>
               <Num>52개</Num>
             </Item>
             <Item>
-              <img src={paper} width="24px" alt="paper" />
+              <img src={paper} width="16px" alt="paper" />
               <Name>종이</Name>
               <Num>52개</Num>
             </Item>
             <Item>
-              <img src={glass} width="24px" alt="glass" />
+              <img src={glass} width="16px" alt="glass" />
               <Name>유리</Name>
               <Num>52개</Num>
             </Item>
             <Item>
-              <img src={vinyl} width="24px" alt="vinyl" />
+              <img src={vinyl} width="16px" alt="vinyl" />
               <Name>비닐</Name>
               <Num>52개</Num>
             </Item>
             <Item>
-              <img src={others} width="24px" alt="others" />
+              <img src={others} width="16px" alt="others" />
               <Name>기타</Name>
               <Num>52개</Num>
             </Item>
