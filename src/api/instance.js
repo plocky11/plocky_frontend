@@ -11,7 +11,7 @@ const instance = axios.create({
 
 instance.interceptors.request.use(config => {
   // instance가 서버에 request를 보내기 전에 모두 가로채서 먼저 headers 설정을 해주는 인터셉터.
-  config.headers.Authorization = `Bearer ${localStorage.getItem('token')}`;
+  config.headers.Authorization = `Bearer ${localStorage.getItem('access_token')}`;
   return config;
 });
 
