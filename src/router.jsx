@@ -6,6 +6,7 @@ import GeneralLayout from '@/components/layout';
 import Plogging from '@/routes/plogging/index';
 import EndPlogging from './routes/endPlogging';
 import MyPage from './routes/mypage';
+import { PloggingProvider } from './api/context/ploggingContext';
 
 const routerData = [
   {
@@ -27,6 +28,7 @@ const routerData = [
     path: '/plogging',
     element: <Plogging />,
     withAuth: false,
+    withPlogging: true,
   },
   {
     path: '/endPlogging',
@@ -40,4 +42,18 @@ const routerData = [
   },
 ];
 
-export const routers = createBrowserRouter(routerData);
+export const routers = createBrowserRouter(
+  routerData.map(router => {
+    if (router.withPlogging) {
+      return {
+        path: router.path,
+        element: <PloggingProvider>{router.element}</PloggingProvider>,
+      };
+    } else {
+      return {
+        path: router.path,
+        element: router.element,
+      };
+    }
+  }),
+);
