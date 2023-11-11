@@ -9,6 +9,7 @@ import {
   usePloggingValue,
 } from '@/api/context/ploggingContext';
 import theme from '@/styles/theme';
+import instance from '@/api/instance';
 
 export default function KakaoMap() {
   useKakaoMapLoader();
@@ -55,6 +56,15 @@ export default function KakaoMap() {
   );
 
   useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await instance.get('/trashcan');
+        setPositions(response.data);
+        console.log(response.data);
+      } catch (error) {
+        console.error('Error fetching trash can data:', error);
+      }
+    };
     if (navigator.geolocation) {
       // GeoLocation을 이용해서 접속 위치를 얻어옵니다
       navigator.geolocation.getCurrentPosition(
@@ -93,6 +103,7 @@ export default function KakaoMap() {
         isLoading: false,
       }));
     }
+    fetchData();
   }, []);
 
   const cleanUp = () => {

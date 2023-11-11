@@ -10,10 +10,10 @@ export default function RedirectedKakao() {
       //console.log(code);
       if (code) {
         const loginRes = await requestAccessToken(code);
-        localStorage.setItem('access_token', loginRes.data.token);
-        console.log('requestAccessToken', loginRes.data.token);
+        localStorage.setItem("access_token" ,loginRes.data.token)
+        console.log("requestAccessToken", loginRes.data.token);
         if (loginRes.data.token != null) {
-          window.location.href = 'http://localhost:3000/';
+          window.location.href='http://localhost:3000/';
         }
       } else {
         redirect('/login');
