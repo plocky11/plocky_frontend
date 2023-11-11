@@ -16,9 +16,6 @@ export default function Plogging() {
     setIsPlogging(true);
   };
 
-  const handleEndPlogging = () => {
-    //  완료 화면으로 이동
-  };
 
   const contentWrapperStyle = !isPlogging
     ? { height: 'calc(100vh - 62px)' }
