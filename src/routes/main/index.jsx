@@ -23,6 +23,7 @@ import {
   RankImage,
   GoPlogging,
   Level,
+  PetImg,
 } from './MainStyle';
 import instance from '@/api/instance';
 
@@ -40,6 +41,12 @@ export default function Main() {
     totalDistance: '',
     ranking: '',
   });
+  const [userData, setUserData] = useState([
+    { memberId: '', petLevel: '', nickname: '', totalDistance: '' },
+    { memberId: '', petLevel: '', nickname: '', totalDistance: '' },
+    { memberId: '', petLevel: '', nickname: '', totalDistance: '' },
+  ]);
+
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -54,10 +61,11 @@ export default function Main() {
             Authorization: `Bearer ${localStorage.getItem('access_token')}`,
           },
         });
-        // console.log('General Ranking:', rankingResult.data);
-        console.log('My Ranking:', myRankingResult.data);
+        console.log('General Ranking:', rankingResult.data);
+        // console.log('My Ranking:', myRankingResult.data);
         setMyData(myRankingResult.data);
-        console.log('내 데이터', myData);
+        setUserData(rankingResult.data);
+        console.log(userData);
       } catch (error) {
         console.error(error);
       }
@@ -72,9 +80,9 @@ export default function Main() {
         <div>
           <img src={logo} alt="Logo" width="120px" height="64px" />
         </div>
-        <div>
-          <PetLevel level={myData.petLevel} />
-        </div>
+        <PetImg>
+          <PetLevel level={myData.petLevel} width="160px" height="120px" />
+        </PetImg>
         <PetName>
           {myData.nickname}
           <Level>Lv.{myData.petLevel}</Level>
@@ -91,30 +99,48 @@ export default function Main() {
             <Rank>1</Rank>
             <RankImage>
               <img src={circle} width="36px" height="36px" alt="circle" />
-              {/* 백엔드에서 펫 이미지 가져오기 */}
+              <div>
+                <PetLevel
+                  level={userData[0].petLevel}
+                  width="40px"
+                  height="40px"
+                />
+              </div>
             </RankImage>
-            <Username>어쩌구</Username>
-            <UserKm>10km</UserKm>
+            <Username>{userData[0].nickname}</Username>
+            <UserKm>{userData[0].totalDistance}km</UserKm>
           </RankBox>
           <RankBox>
             <img src={defaultBox} alt="rank" />
             <Rank>2</Rank>
             <RankImage>
               <img src={circle} width="36px" height="36px" alt="circle" />
-              {/* 백엔드에서 펫 이미지 가져오기 */}
+              <div>
+                <PetLevel
+                  level={userData[1].petLevel}
+                  width="40px"
+                  height="40px"
+                />
+              </div>
             </RankImage>
-            <Username>어쩌구</Username>
-            <UserKm>10km</UserKm>
+            <Username>{userData[1].nickname}</Username>
+            <UserKm>{userData[1].totalDistance}km</UserKm>
           </RankBox>
           <RankBox>
             <img src={defaultBox} alt="rank" />
             <Rank>3</Rank>
             <RankImage>
               <img src={circle} width="36px" height="36px" alt="circle" />
-              {/* 백엔드에서 펫 이미지 가져오기 */}
+              <div>
+                <PetLevel
+                  level={userData[2].petLevel}
+                  width="40px"
+                  height="40px"
+                />
+              </div>
             </RankImage>
-            <Username>어쩌구</Username>
-            <UserKm>10km</UserKm>
+            <Username>{userData[2].nickname}</Username>
+            <UserKm>{userData[2].totalDistance}km</UserKm>
           </RankBox>
           <img src={dot} alt="dot" width="30px" />
           <RankBox>
@@ -133,10 +159,12 @@ export default function Main() {
             <Rank>{myData.ranking}</Rank>
             <RankImage>
               <img src={circle} width="36px" height="36px" alt="circle" />
-              {/* 백엔드에서 펫 이미지 가져오기 */}
+              <div>
+                <PetLevel level={myData.petLevel} width="40px" height="40px" />
+              </div>
             </RankImage>
             <Username> {myData.nickname}</Username>
-            <UserKm>{myData.totalDistance}</UserKm>
+            <UserKm>{myData.totalDistance}km</UserKm>
           </RankBox>
         </RankWrapper>
         <GoPlogging onClick={() => goPlogging()}>

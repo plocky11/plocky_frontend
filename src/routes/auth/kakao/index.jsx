@@ -7,20 +7,12 @@ export default function RedirectedKakao() {
   useEffect(() => {
     async function getToken() {
       const code = new URL(window.location.href).searchParams.get('code');
-      //console.log(code);
       if (code) {
         const loginRes = await requestAccessToken(code);
-<<<<<<< Updated upstream
-        localStorage.setItem("access_token" ,loginRes.data.token)
-        console.log("requestAccessToken", loginRes.data.token);
-        if (loginRes.data.token != null) {
-          window.location.href='http://localhost:3000/';
-=======
         localStorage.setItem('access_token', loginRes.data.token);
         console.log('requestAccessToken', loginRes.data.token);
         if (loginRes.data.token != null) {
           window.location.href = 'http://localhost:3000/';
->>>>>>> Stashed changes
         }
       } else {
         redirect('/login');
