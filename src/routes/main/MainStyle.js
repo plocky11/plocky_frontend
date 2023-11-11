@@ -78,3 +78,8 @@ export const GoPlogging = styled.div`
   margin-top: 1.5rem;
   drop-shadow(0px 4px 8px 0px rgba(42, 0, 0, 0.1));
 `;
+
+export const Level = styled.div`
+  display: inline;
+  margin-left: 2rem;
+`;
