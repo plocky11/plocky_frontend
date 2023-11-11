@@ -7,17 +7,16 @@ import Trash from '@/components/plogging/trash';
 import Timer from '@/components/plogging/timer';
 
 import { ContentWrapper, GoPlogging, LogoImage } from './PloggingStyle';
+import { usePloggingStart } from '@/api/context/ploggingContext';
 
 export default function Plogging() {
-  const [isPlogging, setIsPlogging] = useState(false);
-  const [addTrashcan, setAddTrashcan] = useState(false);
+  const [isPloggingStarted, setIsPloggingStarted] = usePloggingStart();
 
   const handleStartPlogging = () => {
-    setIsPlogging(true);
+    setIsPloggingStarted(true);
   };
 
-
-  const contentWrapperStyle = !isPlogging
+  const contentWrapperStyle = !isPloggingStarted
     ? { height: 'calc(100vh - 62px)' }
     : { height: '100vh' };
 
@@ -29,19 +28,19 @@ export default function Plogging() {
         </LogoImage>
         <KaKaoMap />
 
-        {!isPlogging && (
+        {!isPloggingStarted && (
           <GoPlogging onClick={handleStartPlogging}>
             <img src={startButton} width="312px" alt="start" />
           </GoPlogging>
         )}
-        {isPlogging && (
+        {isPloggingStarted && (
           <>
             <Trash />
             <Timer />
           </>
         )}
       </ContentWrapper>
-      {!isPlogging && <Navbar />}
+      {!isPloggingStarted && <Navbar />}
     </>
   );
 }
