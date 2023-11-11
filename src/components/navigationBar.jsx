@@ -75,10 +75,11 @@ function Navbar() {
         console.log(icon);
         break;
       }
-      case 'mypage':
-        // navigate('/mypage');
+      case 'mypage': {
+        navigate('/MyPage');
         setFocusedIcon('mypage');
         break;
+      }
       default:
         break;
     }

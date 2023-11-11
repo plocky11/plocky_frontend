@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import can from '@/assets/icons/plogging/can.png';
 import cigarette from '@/assets/icons/plogging/cigarette.png';
@@ -104,6 +105,7 @@ const Num = styled.div`
 const ClickableItem = styled.div``;
 
 function Trash() {
+  const navigate = useNavigate();
   const [counts, setCounts] = useState({
     cigarette: 0,
     plastic: 0,
@@ -144,7 +146,7 @@ function Trash() {
 
   const handleConfirm = () => {
     setEndPloggingModalOpen(false);
-    // 결과 페이지로 이동
+    navigate('/EndPlogging');
   };
 
   const handleCancel = () => {

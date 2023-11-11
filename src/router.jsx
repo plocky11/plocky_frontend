@@ -5,6 +5,7 @@ import Auth from '@/routes/auth';
 import GeneralLayout from '@/components/layout';
 import Plogging from '@/routes/plogging/index';
 import EndPlogging from './routes/endPlogging';
+import MyPage from './routes/mypage';
 
 const routerData = [
   {
@@ -30,6 +31,11 @@ const routerData = [
   {
     path: '/endPlogging',
     element: <EndPlogging />,
+    withAuth: false,
+  },
+  {
+    path: '/mypage',
+    element: <MyPage />,
     withAuth: false,
   },
 ];
