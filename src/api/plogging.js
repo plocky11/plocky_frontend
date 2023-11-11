@@ -5,7 +5,7 @@ export const addPlogging = async body => {
 };
 
 export const getSinglePloggingInfo = async ploggingId => {
-  const response = await instance.get(`/members/ploggins/${ploggindId}`);
+  const response = await instance.get(`/members/ploggings/${ploggindId}`);
   return response.data;
 };
 
