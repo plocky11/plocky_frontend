@@ -1,8 +1,7 @@
 import instance from './instance';
 
 export const requestAccessToken = async code => {
-  const response = await instance.post('/oauth/kakao/login/access', code);
-
+  const response = await instance.post(`oauth/kakao/login/access?code=${code}`);
   return response;
 };
 
