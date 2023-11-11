@@ -17,6 +17,7 @@ const MarkerWrapper = styled.div`
   top: 6rem;
   left: 50%;
   transform: translate(-50%);
+  z-index: 2;
 `;
 function AddTrashcanMarker() {
   return <MarkerWrapper>마커를 추가할 위치를 클릭해주세요</MarkerWrapper>;
