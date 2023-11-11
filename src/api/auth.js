@@ -64,3 +64,4 @@ instance.interceptors.response.use(
     return error;
   },
 );
+export default instance;
