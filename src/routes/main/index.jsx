@@ -1,4 +1,5 @@
 import { useNavigate } from 'react-router-dom';
+import { useEffect } from 'react';
 import logo from '@/assets/icons/logo.png';
 import characterTemp from '@/assets/icons/characters/level2.png';
 import defaultBox from '@/assets/icons/background/defaultBox.png';
@@ -9,6 +10,8 @@ import leaf from '@/assets/icons/background/leaf.png';
 import goButton from '@/assets/icons/buttons/goButton.png';
 import ProgressBar from '../../components/mainpage/progressBar';
 import Navbar from '../../components/navigationBar';
+import instance from '@/api/instance';
+
 import {
   ContentWrapper,
   RankWrapper,
@@ -29,6 +32,28 @@ export default function Main() {
   function goPlogging() {
     navigate('/plogging');
   }
+
+  useEffect(() => {
+    const getRanking = async () => {
+      try {
+        const response = await instance.get('/members/ranking');
+        console.log(response.data);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+    const getMydata = async () => {
+      try {
+        const response = await instance.get('/members/ranking/me');
+        console.log(response.data);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+    getRanking();
+    getMydata();
+  }, []);
+
   return (
     <>
       <ContentWrapper>
